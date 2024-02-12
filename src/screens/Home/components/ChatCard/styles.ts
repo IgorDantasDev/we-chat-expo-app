@@ -1,7 +1,7 @@
 import { RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
 
-export const Container = styled.View`
+export const Container = styled.Pressable`
   width: 100%;
   flex-direction: row;
   background-color: "white";
@@ -11,7 +11,7 @@ export const Container = styled.View`
 export const Content = styled.View`
   flex-direction: row;
   justify-content: space-between;
-  width: 85%;
+  flex: 1;
 `;
 
 export const ProfileImage = styled.Image`

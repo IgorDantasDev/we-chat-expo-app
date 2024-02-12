@@ -7,10 +7,17 @@ export const Text = ({
   color = "black",
   isBold,
   size = 14,
+  textAlign = "left",
   ...rest
 }: Props) => {
   return (
-    <Container color={color} isBold={isBold} size={size} {...rest}>
+    <Container
+      textAlign={textAlign}
+      color={color}
+      isBold={isBold}
+      size={size}
+      {...rest}
+    >
       {children}
     </Container>
   );
