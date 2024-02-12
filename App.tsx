@@ -1,8 +1,16 @@
 import React from "react";
-import { Text } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { Routes } from "~/navigation/Routes";
+import { NavigationContainer } from "@react-navigation/native";
 
-const App: React.FC = () => {
-  return <Text>Isso aqui vai virar o wechat</Text>;
+const App = () => {
+  return (
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <Routes />
+      </NavigationContainer>
+    </SafeAreaProvider>
+  );
 };
 
 export default App;
