@@ -15,7 +15,7 @@ const reducerProxy = (state: any, action: AnyAction) => {
 export const persistedReducers = () => {
   const persistedReducer = persistReducer(
     {
-      key: 'we-chat',
+      key: 'we-chat-expo-app',
       storage: AsyncStorage,
       // WhiteList contains a list of Slices names which can be stored on AsyncStorage
       whitelist: [ESliceNames.AUTH],

@@ -1,8 +1,9 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import {ESliceNames, EThunkNames} from '../types';
+
+import {ESliceNames, EThunkTypeNames} from '../types';
 import {InitialStateProps} from './types';
-import {GoogleSignin, User} from '@react-native-google-signin/google-signin';
 import {IGoogleUser} from '~/@types/IGoogleUser';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
 
 const initialState = {
   user: null,
@@ -13,16 +14,18 @@ const initialState = {
 } as InitialStateProps;
 
 export const handleGoogleLogin = createAsyncThunk<IGoogleUser, void>(
-  EThunkNames.GOOGLE_LOGIN,
+  EThunkTypeNames.GOOGLE_LOGIN,
   async (_, {rejectWithValue}) => {
     try {
       const {user} = await GoogleSignin.signIn();
+      ~console.log(user);
       return user;
-    } catch (error) {
-      return rejectWithValue(error);
+    } catch (eventError: any) {
+      return rejectWithValue(eventError?.response?.data);
     }
   },
 );
+
 export const authSlice = createSlice({
   name: ESliceNames.AUTH,
   initialState,
@@ -30,24 +33,18 @@ export const authSlice = createSlice({
     clear: () => initialState,
   },
   extraReducers: builder => {
-    /**
-     * Login Builder
-     */
     builder.addCase(handleGoogleLogin.pending, state => {
       state.loading = true;
       state.success = false;
-      state.isLoggedIn = false;
     });
-
     builder.addCase(handleGoogleLogin.fulfilled, (state, action) => {
-      state.error = false;
-      state.loading = false;
-      state.isLoggedIn = true;
       state.user = action.payload;
+      state.isLoggedIn = true;
+      state.success = true;
+      state.loading = false;
     });
-
     builder.addCase(handleGoogleLogin.rejected, state => {
-      state.error = true;
+      state.success = false;
       state.loading = false;
     });
   },

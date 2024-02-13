@@ -1,7 +1,7 @@
-import {User} from '@react-native-google-signin/google-signin';
+import {IGoogleUser} from '~/@types/IGoogleUser';
 
 export interface InitialStateProps {
-  user: User;
+  user: IGoogleUser;
   isLoggedIn: boolean;
   loading: boolean;
   success: boolean;
