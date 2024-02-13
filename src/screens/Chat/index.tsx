@@ -8,12 +8,13 @@ import { DATA } from "~/utils/data";
 import { Separator } from "~/components/Separator";
 import Input from "~/components/Input";
 import { RFValue } from "react-native-responsive-fontsize";
+import BACKGROUND_IMAGE from "~/assets/images/background.jpg";
 
 export const Chat = () => {
   return (
     <Container>
       <ChatHeader message={DATA[1]} />
-      <ChatBackground source={require("~/assets/images/background.jpg")}>
+      <ChatBackground source={BACKGROUND_IMAGE}>
         <FlatList
           data={DATA}
           renderItem={({ item }) => <ChatMessage message={item} />}

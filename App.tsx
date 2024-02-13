@@ -1,18 +1,27 @@
 import React from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Routes } from "~/navigation/Routes";
+import { Provider } from "react-redux";
+
 import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import { HEADER_COLOR } from "~/constants/colors";
+import { store } from "~/store";
 
+if (__DEV__) {
+  // @ts-ignore
+  import("~/config/reactotronConfig");
+}
 const App = () => {
   return (
-    <SafeAreaProvider>
+    <Provider store={store}>
       <NavigationContainer>
-        <StatusBar translucent backgroundColor={HEADER_COLOR} style="light" />
-        <Routes />
+        <SafeAreaProvider>
+          <StatusBar translucent backgroundColor={HEADER_COLOR} style="light" />
+          <Routes />
+        </SafeAreaProvider>
       </NavigationContainer>
-    </SafeAreaProvider>
+    </Provider>
   );
 };
 
