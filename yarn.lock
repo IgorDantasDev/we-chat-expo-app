@@ -3812,7 +3812,7 @@ expo-constants@~15.4.0:
   dependencies:
     "@expo/config" "~8.5.0"
 
-expo-dev-client@^3.3.8:
+expo-dev-client@~3.3.8:
   version "3.3.8"
   resolved "https://registry.yarnpkg.com/expo-dev-client/-/expo-dev-client-3.3.8.tgz#f6cff563f2437d0d265aa4d91eb263d592ac43f3"
   integrity sha512-6JpcxncWiWwq1w6SPrePpTa20z3D1qmAMMHd8f05lSCUPVBn4jTwpzrKEpGaA3EubLE5SEdxPVmvmyWw/oFFMQ==

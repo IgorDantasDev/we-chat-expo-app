@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "952850352941-2bu5c53egf4d68bi6ml4eeiubddqmsv5.apps.googleusercontent.com",
+          "client_id": "952850352941-rcatlmftkg90qrfolpomase7kser3c81.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.wechat",
-            "certificate_hash": "40a8b630a7e9a0356b368bb7b8a44f94e64405c4"
+            "certificate_hash": "12805a036695758bf0e9b50340d0a17930c84b16"
           }
         },
         {

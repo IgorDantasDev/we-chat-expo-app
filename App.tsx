@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Routes } from "~/navigation/Routes";
 import { Provider } from "react-redux";
@@ -8,6 +8,7 @@ import { StatusBar } from "expo-status-bar";
 import { HEADER_COLOR } from "~/constants/colors";
 import { store } from "~/store";
 import { LogBox } from "react-native";
+import { googleSignInInit } from "~/config/googleSignConfig";
 
 if (__DEV__) {
   // @ts-ignore
@@ -17,6 +18,10 @@ const App = () => {
 
   LogBox.ignoreLogs(['middlewares were provided, but middleware enhancer was not included in final enhancers - make sure to call `getDefaultEnhancers'])
 
+
+  useEffect(() => {
+    googleSignInInit()
+  }, [])
 
   return (
     <Provider store={store}>

@@ -6,7 +6,8 @@ import {GoogleSignin} from '@react-native-google-signin/google-signin';
 export const Login: React.FC = () => {
   const handleGoogleLogin = async () => {
     try {
-      await GoogleSignin.signIn();
+    const test =  await GoogleSignin.signIn();
+    console.log(test)
     } catch (error) {
       console.log(error);
     }
