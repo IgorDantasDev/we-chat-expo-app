@@ -1,21 +1,19 @@
 import React from 'react';
 import {Container} from './styles';
 import {Button} from 'react-native';
-import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import {useAppDispatch} from '~/hooks/redux/useAppDispatch';
+import {handleGoogleLogin} from '~/store/slices/auth';
 
 export const Login: React.FC = () => {
-  const handleGoogleLogin = async () => {
-    try {
-    const test =  await GoogleSignin.signIn();
-    console.log(test)
-    } catch (error) {
-      console.log(error);
-    }
+  const dispatch = useAppDispatch();
+
+  const handleLogin = () => {
+    dispatch(handleGoogleLogin());
   };
 
   return (
     <Container>
-      <Button onPress={handleGoogleLogin} title="Login with Google" />
+      <Button onPress={handleLogin} title="Login with Google" />
     </Container>
   );
 };

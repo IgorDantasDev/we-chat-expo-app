@@ -1,3 +1,7 @@
 export enum ESliceNames {
-  AUTH = "auth",
+  AUTH = 'auth',
+}
+
+export enum EThunkNames {
+  GOOGLE_LOGIN = '@auth/google_login',
 }

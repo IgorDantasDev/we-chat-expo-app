@@ -1,9 +1,9 @@
 import {configureStore} from '@reduxjs/toolkit';
 import {persistStore} from 'redux-persist';
-
 import {persistedReducers} from './persist';
 // @ts-ignore
 import Reactotron from '../config/reactotronConfig';
+import {thunk} from 'redux-thunk';
 
 export const store = configureStore({
   reducer: persistedReducers(),
