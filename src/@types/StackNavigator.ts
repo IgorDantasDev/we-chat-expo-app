@@ -1,16 +1,24 @@
-import { RouteProp } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import {RouteProp} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 declare global {
-  export type StackParamList = {
+  export type SignedInParamList = {
     Home: undefined;
     Chat: undefined;
   };
+  export type SignInParamsList = {
+    Login: undefined;
+  };
 
-  export type StackNavigatorProp = NativeStackNavigationProp<
-    StackParamList,
-    "Home"
+  export type SignInNavigatorProp = NativeStackNavigationProp<
+    SignInParamsList,
+    'Login'
   >;
 
-  export type ChatScreenRouteProp = RouteProp<StackParamList, "Chat">;
+  export type StackNavigatorProp = NativeStackNavigationProp<
+    SignedInParamList,
+    'Home'
+  >;
+
+  export type ChatScreenRouteProp = RouteProp<SignedInParamList, 'Chat'>;
 }
